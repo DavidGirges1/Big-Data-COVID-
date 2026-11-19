@@ -10,6 +10,18 @@ The producer sends reports to Kafka (`covid.raw`). NiFi validates and standardiz
 
 Our first milestone is four sample reports (two regions, two dates) traveling through every stage. Then we connect the selected data source. Historical replay is pending course approval, and the production data source is pending the dataset owner's recommendation and team lead's sign-off. The checkout provides the collaboration structure and sample contract. The linked issues track implementation of the services.
 
+## Repository layout
+
+| Path | What goes here |
+| --- | --- |
+| [`docs/`](docs/) | Tools, data contract, integration and demo notes |
+| [`producer/`](producer/) and [`data/`](data/) | Kafka publisher, source selection and fetch instructions |
+| [`infra/`](infra/) | Local services and Kafka setup notes |
+| [`nifi/`](nifi/) | NiFi flow export and instructions |
+| [`spark/`](spark/) | Spark Structured Streaming job and database sink |
+| [`database/`](database/) | PostgreSQL schema and verification queries |
+| [`tests/`](tests/) | Sample reports, expected outputs and verification |
+
 ## Start your first task
 
 1. Install Git and follow the [tools guide](docs/GETTING_STARTED.md). Sign in to GitHub using the account the team leader invited, and accept the repository invitation for push access.
