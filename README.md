@@ -2,7 +2,7 @@
 
 Big Data course project 2. We use Kafka, Apache NiFi, Spark Structured Streaming, and PostgreSQL to turn incoming COVID-19 reports into daily trends and hotspot rankings.
 
-**Start here:** [Install the tools](docs/GETTING_STARTED.md) · [Find your assignment](#team-roles) · [Read the data contract](docs/DATA_CONTRACT.md)
+**Start here:** [Install the tools](docs/GETTING_STARTED.md) · [Find your assignment](#team-roles) · [Read the data contract](docs/DATA_CONTRACT.md) · [Run the integration checklist](docs/INTEGRATION.md)
 
 ## What we are building
 

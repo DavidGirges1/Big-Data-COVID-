@@ -1,0 +1,3 @@
+{"event_id":
+{"event_id":"invalid-date","region":"A","date":"2021-02-30","confirmed":"3","deaths":"1","recovered":"","active":""}
+{"event_id":"invalid-count","region":"B","date":"2021-01-02","confirmed":"-1","deaths":"1","recovered":"","active":""}

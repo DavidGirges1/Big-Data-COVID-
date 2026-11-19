@@ -23,17 +23,27 @@ Expected clean event:
 ```
 
 - The Kafka message key is the region identifier. Use one geography level and stable identifiers. Use a stable `event_id` for repeat delivery of the same report and a distinct ID for a revised report.
-- Require `event_id`, `region_id`, a valid ISO calendar date in `YYYY-MM-DD` format, and a nonnegative integer `confirmed_total`. Other count fields accept nonnegative integers or JSON `null` when unavailable. Keep reported zero as zero.
+- Raw demo counts arrive as decimal strings. Map missing or blank optional counts to JSON null. Require `event_id`, `region_id`, a valid ISO calendar date in `YYYY-MM-DD` format, and a nonnegative signed 64-bit integer `confirmed_total`. Other count fields accept nonnegative signed 64-bit integers or JSON `null` when unavailable. Keep reported zero as zero.
 - The rejected record contains the original raw payload and a rejection reason. Avoid copying malformed input into a clean event.
 - Preserve `active_reported` as provided. If the team elects to calculate estimated active cases, use comparable same-date totals for confirmed, recovered and deaths and expose the estimate separately. Record source coverage and limitations.
 
 ## Result rows
 
-Use one PostgreSQL result row per `(region_id, report_date)`. The Spark and database owners agree on the final column types and checkpoint behavior before connecting the sink.
+Spark hands the following columns to the PostgreSQL sink. Use table `covid_daily_metrics` with primary key `(region_id, report_date)`. The sink upserts rows by that key so retries and rank changes replace an existing row.
 
-- Preserve reported totals and calculate `new_confirmed` and `new_deaths` by subtracting the prior calendar day's total for the same region. A missing prior day or required count produces a null delta.
-- A lower cumulative total can reflect a reporting correction. Keep the signed delta, flag the corresponding metric as corrected (for example `confirmed_correction`), and leave negative confirmed changes out of the ranking.
-- `hotspot_rank` is per report date, descending by nonnegative `new_confirmed` and then ascending by `region_id` for ties. Rows without an eligible delta have a null rank. It measures reported case volume.
-- The fixture ships in date order, but regions can arrive separately. Later arrivals for the same date can change a previously emitted rank, so use updates keyed by region and date. Before using a real dataset, agree on and document how late or revised reports are handled. Ensure replays of an identical report leave results unchanged.
+| Column | PostgreSQL type | Nullable |
+| --- | --- | --- |
+| `region_id` | TEXT | No |
+| `report_date` | DATE | No |
+| `confirmed_total` | BIGINT | No |
+| `deaths_total`, `recovered_total`, `active_reported` | BIGINT | Yes |
+| `new_confirmed`, `new_deaths` | BIGINT | Yes |
+| `hotspot_rank` | INTEGER | Yes |
+| `confirmed_correction`, `deaths_correction` | BOOLEAN | No |
 
-See [expected fixture rows](../tests/fixtures/expected-daily.csv).
+- Compute each daily delta from the prior **calendar day** for the same region. A missing date or missing required count yields a null delta. Set a correction flag to true only for a negative delta.
+- Rank each date by nonnegative `new_confirmed`, highest first, with `region_id` ascending as the deterministic tiebreaker. Leave the rank null when the delta is missing or negative. This ranking measures reported case counts.
+- The kickoff fixtures are ordered by report date. Different regions can arrive separately on the same date. Emit an update for each existing rank that changes. Repeated deliveries of the same event ID leave results unchanged.
+- After selecting the source, agree how to handle older dates arriving out of order and distinct revisions for a region and date. A cumulative drop on a subsequent date in the fixture is a correction to the count trend.
+
+See the [fixture inputs and expected rows](../tests/README.md) and [integration runbook](INTEGRATION.md).
