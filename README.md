@@ -17,7 +17,7 @@ Our first milestone is four sample reports (two regions, two dates) traveling th
 | Member 1 ([@DavidGirges1](https://github.com/DavidGirges1)) | Team lead | [#1](https://github.com/DavidGirges1/Big-Data-COVID-/issues/1) |
 | Member 2 | Data source and producer | [#2](https://github.com/DavidGirges1/Big-Data-COVID-/issues/2) |
 | Member 3 | Local infrastructure and Kafka | [#3](https://github.com/DavidGirges1/Big-Data-COVID-/issues/3) |
-| Member 4 | Asmaa NiFi ETL | [#4](https://github.com/DavidGirges1/Big-Data-COVID-/issues/4) |
+| Member 4 | NiFi ETL | [#4](https://github.com/DavidGirges1/Big-Data-COVID-/issues/4) |
 | Member 5 | Spark Structured Streaming | [#5](https://github.com/DavidGirges1/Big-Data-COVID-/issues/5) |
 | Member 6 | Database and Spark sink | [#6](https://github.com/DavidGirges1/Big-Data-COVID-/issues/6) |
 | Member 7 | Verification and demo | [#7](https://github.com/DavidGirges1/Big-Data-COVID-/issues/7) |
