@@ -1,5 +1,5 @@
-region_id,report_date,confirmed_total,deaths_total,recovered_total,active_reported,new_confirmed,new_deaths,hotspot_rank
-A,2021-01-01,100,5,60,35,,,
-B,2021-01-01,40,1,,,,,
-A,2021-01-02,120,6,70,,20,1,1
-B,2021-01-02,52,1,,,12,0,2
+region_id,report_date,confirmed_total,deaths_total,recovered_total,active_reported,new_confirmed,new_deaths,hotspot_rank,confirmed_correction,deaths_correction
+A,2021-01-01,100,5,60,35,,,,false,false
+B,2021-01-01,40,1,,,,,,false,false
+A,2021-01-02,120,6,70,,20,1,1,false,false
+B,2021-01-02,52,1,,,12,0,2,false,false

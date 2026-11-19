@@ -1,0 +1,9 @@
+{"event_id":"fixture-a-2021-01-01","region":"A","date":"2021-01-01","confirmed":"100","deaths":"5","recovered":"60","active":"35"}
+{"event_id":"fixture-b-2021-01-01","region":"B","date":"2021-01-01","confirmed":"40","deaths":"1","recovered":"","active":""}
+{"event_id":"fixture-c-2021-01-01","region":"C","date":"2021-01-01","confirmed":"20","deaths":"0","recovered":"","active":""}
+{"event_id":"fixture-b-2021-01-02","region":"B","date":"2021-01-02","confirmed":"52","deaths":"1","recovered":"","active":""}
+{"event_id":"fixture-b-2021-01-02","region":"B","date":"2021-01-02","confirmed":"52","deaths":"1","recovered":"","active":""}
+{"event_id":"fixture-a-2021-01-02","region":"A","date":"2021-01-02","confirmed":"120","deaths":"6","recovered":"70","active":""}
+{"event_id":"fixture-c-2021-01-02","region":"C","date":"2021-01-02","confirmed":"32","deaths":"0","recovered":"","active":""}
+{"event_id":"fixture-a-2021-01-03","region":"A","date":"2021-01-03","confirmed":"118","deaths":"5","recovered":"72","active":"0"}
+{"event_id":"fixture-b-2021-01-04","region":"B","date":"2021-01-04","confirmed":"60","deaths":"2","recovered":"","active":""}
