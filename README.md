@@ -2,13 +2,27 @@
 
 Big Data course project 2. We use Kafka, Apache NiFi, Spark Structured Streaming, and PostgreSQL to turn incoming COVID-19 reports into daily trends and hotspot rankings.
 
-**Start here:** [Install the tools](docs/GETTING_STARTED.md) · [Find your assignment](TEAM.md) · [Read the data contract](docs/DATA_CONTRACT.md)
+**Start here:** [Install the tools](docs/GETTING_STARTED.md) · [Find your assignment](#team-roles) · [Read the data contract](docs/DATA_CONTRACT.md)
 
 ## What we are building
 
 The producer sends reports to Kafka (`covid.raw`). NiFi validates and standardizes them and writes to Kafka (`covid.clean`). Spark reads the clean stream and calculates metrics. PostgreSQL stores the results for SQL queries. NiFi sends invalid records to `covid.invalid` for investigation.
 
 Our first milestone is four sample reports (two regions, two dates) traveling through every stage. Then we connect the selected data source. Historical replay is pending course approval, and the production data source is pending the dataset owner's recommendation and team lead's sign-off. The checkout provides the collaboration structure and sample contract. The linked issues track implementation of the services.
+
+## Team roles
+
+| Member | Role | GitHub issue |
+| --- | --- | --- |
+| Member 1 ([@DavidGirges1](https://github.com/DavidGirges1)) | Team lead | [#1](https://github.com/DavidGirges1/Big-Data-COVID-/issues/1) |
+| Member 2 | Data source and producer | [#2](https://github.com/DavidGirges1/Big-Data-COVID-/issues/2) |
+| Member 3 | Local infrastructure and Kafka | [#3](https://github.com/DavidGirges1/Big-Data-COVID-/issues/3) |
+| Member 4 | NiFi ETL | [#4](https://github.com/DavidGirges1/Big-Data-COVID-/issues/4) |
+| Member 5 | Spark Structured Streaming | [#5](https://github.com/DavidGirges1/Big-Data-COVID-/issues/5) |
+| Member 6 | Database and Spark sink | [#6](https://github.com/DavidGirges1/Big-Data-COVID-/issues/6) |
+| Member 7 | Verification and demo | [#7](https://github.com/DavidGirges1/Big-Data-COVID-/issues/7) |
+
+See [TEAM.md](TEAM.md) for folder ownership and reviewers.
 
 ## Repository layout
 
@@ -25,7 +39,7 @@ Our first milestone is four sample reports (two regions, two dates) traveling th
 ## Start your first task
 
 1. Install Git and follow the [tools guide](docs/GETTING_STARTED.md). Sign in to GitHub using the account the team leader invited, and accept the repository invitation for push access.
-2. Open your issue from the [team assignments](TEAM.md). Read the files you own, the handoff, and the definition of done. If you are blocked, comment on your issue with what you tried and the exact error or decision you need.
+2. Open your issue from the [team roles table](#team-roles). Read the files you own, the handoff, and the definition of done. If you are blocked, comment on your issue with what you tried and the exact error or decision you need.
 3. Open Command Prompt on Windows or Terminal on macOS/Linux in the parent folder where you want the project. A *clone* is your local copy of the repository.
 
    ```bash
@@ -56,5 +70,3 @@ Our first milestone is four sample reports (two regions, two dates) traveling th
    ```
 
 6. On GitHub, click **Compare & pull request**, or go to **Pull requests → New pull request**. Choose `main` as the base and your branch as the compare branch. A *pull request* (PR) asks the team to review and merge your changes. Include `Closes #4` using your issue number, add the commands or evidence needed to verify your work, and request the reviewer named in your issue. The lead merges after review. Use `git push` for later commits on the same branch.
-
-Folder ownership, reviewers, and issue links are in [TEAM.md](TEAM.md).
