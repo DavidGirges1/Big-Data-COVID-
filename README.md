@@ -20,7 +20,7 @@ Our first milestone is four sample reports (two regions, two dates) traveling th
 | Asmaa | NiFi ETL | [#4](https://github.com/DavidGirges1/Big-Data-COVID-/issues/4) |
 | Ahmed Hameed ([@Ahmed-Hameed930](https://github.com/Ahmed-Hameed930)) | Spark Structured Streaming | [#5](https://github.com/DavidGirges1/Big-Data-COVID-/issues/5) |
 | Heba | Database and Spark sink | [#6](https://github.com/DavidGirges1/Big-Data-COVID-/issues/6) |
-| Member 7 | Verification and demo | [#7](https://github.com/DavidGirges1/Big-Data-COVID-/issues/7) |
+| M7 -George | Verification and demo | [#7](https://github.com/DavidGirges1/Big-Data-COVID-/issues/7) |
 
 See [TEAM.md](TEAM.md) for folder ownership and reviewers.
 
